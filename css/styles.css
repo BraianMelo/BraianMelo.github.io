@@ -10986,7 +10986,7 @@ html {
 
 .masthead-avatar {
   border-radius: 50%;
-  border: 7px solid #595959;
+  border: 10px solid #0D0D0D;
   object-fit: cover;
   image-rendering: auto; /* ou 'smooth', dependendo do navegador */
 }

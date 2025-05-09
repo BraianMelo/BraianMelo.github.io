@@ -1,44 +1,33 @@
-/*!
-* Start Bootstrap - Freelancer v7.0.7 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+import { init, sendForm } from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.js';
 
 window.addEventListener('DOMContentLoaded', event => {
-
-    // Navbar shrink function
-    var navbarShrink = function () {
+    // Função para reduzir o navbar
+    const navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
             return;
         }
         if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
+            navbarCollapsible.classList.remove('navbar-shrink');
         } else {
-            navbarCollapsible.classList.add('navbar-shrink')
+            navbarCollapsible.classList.add('navbar-shrink');
         }
-
     };
 
-    // Shrink the navbar 
+    // Aplica ao carregar
     navbarShrink();
-
-    // Shrink the navbar when page is scrolled
     document.addEventListener('scroll', navbarShrink);
 
-    // Activate Bootstrap scrollspy on the main nav element
+    // Scrollspy do Bootstrap
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
         new bootstrap.ScrollSpy(document.body, {
             target: '#mainNav',
             rootMargin: '0px 0px -40%',
         });
-    };
+    }
 
-    // Collapse responsive navbar when toggler is visible
+    // Collapse da navbar
     const navbarToggler = document.body.querySelector('.navbar-toggler');
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
@@ -51,4 +40,22 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    // ✅ Inicializa corretamente o EmailJS
+    init("FImC_ahkCuwvWI7cY");
+
+    // ✅ Envia o formulário corretamente
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        sendForm('service_a4klsjb', 'template_qfop378', this)
+            .then(() => {
+                document.getElementById("submitSuccessMessage").classList.remove("d-none");
+                document.getElementById("submitErrorMessage").classList.add("d-none");
+                this.reset();
+            }, (error) => {
+                console.error("Erro ao enviar:", error);
+                document.getElementById("submitSuccessMessage").classList.add("d-none");
+                document.getElementById("submitErrorMessage").classList.remove("d-none");
+            });
+    });
 });
