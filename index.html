@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- EmailJS -->
+    <!-- EmailJS: usado para mandar o email -->
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -32,20 +32,19 @@
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
+
+            <!-- Barrinhas no menu -->
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#portfolio">Projetos</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#habilidades">Habilidades</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Sobre
-                            mim</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="#contact">Entre em contato</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Sobre mim</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Projetos</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Entre em contato</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Masthead-->
+    <!-- Inicio-->
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
@@ -63,10 +62,10 @@
         </div>
     </header>
 
-    <!-- habilities Section-->
+    <!-- Seçao de habilidades-->
     <section class="page-section bg-light" id="habilidades">
         <div class="container">
-            <!-- Habilidades Section Heading-->
+            <!-- Cabeçalho -->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
                 <i class="fas fa-tools me-2"></i>Minhas Habilidades
             </h2>
@@ -114,6 +113,7 @@
                     </p>
                 </div>
 
+                <!-- Habilidade 4 -->
                 <div class="col-md-4 mb-5">
                     <h4><i class="fab fa-java text-warning me-2"></i>Java</h4>
                     <p>
@@ -125,19 +125,19 @@
                     </p>
                 </div>
 
-                <!-- Habilidade Spring Boot -->
+                <!-- Habilidade 5 -->
                 <div class="col-md-4 mb-5">
                     <h4><i class="fas fa-cogs text-success me-2"></i>Spring Boot</h4>
                     <p>
                         <i class="fas fa-star text-warning"></i>
                         <i class="fas fa-star text-warning"></i>
                         <i class="fas fa-star text-warning"></i>
-                        <i class="far fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
                         <i class="far fa-star text-warning"></i>
                     </p>
                 </div>
 
-                <!-- Habilidade MySQL -->
+                <!-- Habilidade 6 -->
                 <div class="col-md-4 mb-5">
                     <h4><i class="fas fa-database text-danger me-2"></i>MySQL</h4>
                     <p>
@@ -152,7 +152,7 @@
         </div>
     </section>
 
-    <!-- Competências Profissionais Section-->
+    <!-- Seção de Competências Profissionais-->
     <section class="page-section bg-light" id="habilidades">
         <div class="container">
             <!-- Competências Section Heading-->
@@ -168,6 +168,7 @@
 
             <!-- Competências Grid -->
             <div class="row justify-content-center text-center">
+                
                 <!-- Competência Metodologias Ágeis -->
                 <div class="col-md-4 mb-5">
                     <h4><i class="fas fa-sync-alt text-primary me-2"></i>Metodologias Ágeis</h4>
@@ -207,8 +208,8 @@
         </div>
     </section>
 
-       <!-- About Section-->
-       <section class="page-section bg-primary text-white mb-0" id="about">
+    <!-- Seção sobre mim-->
+    <section class="page-section bg-primary text-white mb-0" id="about">
         <div class="container">
             <!-- About Section Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-white">Sobre mim</h2>
@@ -229,17 +230,10 @@
                         no momento, busco aprimorar minhas habilidades em desenvolvimento web.</p>
                 </div>
             </div>
-            <!-- About Section Button-->
-            <div class="text-center mt-4">
-                <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                    <i class="fas fa-download me-2"></i>
-                    Baixe meu currículo
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- Portfolio Section-->
+    <!-- Seção Projetos -->
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
             <!-- Portfolio Section Heading-->
@@ -250,9 +244,9 @@
                 <div class="divider-custom-icon"><i class="fas fa-cogs"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <!-- Portfolio Grid Items-->
+            <!-- Projetos Grid Items-->
             <div class="row justify-content-center">
-                <!-- Portfolio Item 1-->
+                <!-- Projetos 1-->
                 <div class="col-md-6 col-lg-4 mb-5">
                     <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
                         <div
@@ -260,7 +254,7 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/projeto-web.png" alt="..." />
                     </div>
                 </div>
                 <!-- Portfolio Item 2-->
@@ -271,7 +265,7 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/cake.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/projeto-java.png" alt="..." />
                     </div>
                 </div>
                 <!-- Portfolio Item 3-->
@@ -282,14 +276,14 @@
                             <div class="portfolio-item-caption-content text-center text-white"><i
                                     class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="assets/img/portfolio/circus.png" alt="..." />
+                        <img class="img-fluid" src="assets/img/portfolio/projeto-c.png" alt="..." />
                     </div>
                 </div>
             </div>
     </section>
 
 
-    <!-- Sessao para entrar em contato -->
+    <!-- Seção para entrar em contato -->
     <section class="page-section" id="contact">
         <div class="container">
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Entre em Contato</h2>
@@ -302,49 +296,53 @@
                 <div class="col-lg-8 col-xl-7">
                     <form id="contactForm">
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="nome" name="nome" type="text" placeholder="Insira o seu nome..." required />
+                            <input class="form-control" id="nome" name="nome" type="text"
+                                placeholder="Insira o seu nome..." required />
                             <label for="nome">Nome completo</label>
                         </div>
-    
+
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="email" name="email" type="email" placeholder="nome@exemplo.com" required />
+                            <input class="form-control" id="email" name="email" type="email"
+                                placeholder="nome@exemplo.com" required />
                             <label for="email">Endereço de e-mail</label>
                         </div>
-    
+
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="phone" name="numero" type="tel" placeholder="(11) 91234-5678" required />
+                            <input class="form-control" id="phone" name="numero" type="tel"
+                                placeholder="(11) 91234-5678" required />
                             <label for="phone">Telefone</label>
                         </div>
-    
+
                         <div class="form-floating mb-3">
-                            <textarea class="form-control" id="message" name="mensagem" placeholder="Digite sua mensagem aqui..." style="height: 10rem" required></textarea>
+                            <textarea class="form-control" id="message" name="mensagem"
+                                placeholder="Digite sua mensagem aqui..." style="height: 10rem" required></textarea>
                             <label for="message">Mensagem</label>
                         </div>
-    
+
                         <div class="d-none" id="submitSuccessMessage">
                             <div class="text-center mb-3">
                                 <div class="fw-bolder">Mensagem enviada com sucesso!</div>
                             </div>
                         </div>
-    
+
                         <div class="d-none" id="submitErrorMessage">
                             <div class="text-center text-danger mb-3">Erro ao enviar a mensagem!</div>
                         </div>
-    
+
                         <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Enviar</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    
-    
 
-    <!-- Footer-->
+
+
+    <!-- Rodapé-->
     <footer class="footer text-center">
         <div class="container">
             <div class="row">
-                <!-- Footer Location-->
+                <!-- Endereço-->
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Endereço</h4>
                     <p class="lead mb-0">
@@ -353,7 +351,7 @@
                         São João del Rei, MG
                     </p>
                 </div>
-                <!-- Footer Social Icons-->
+                <!-- Midias sociais-->
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Redes sociais</h4>
                     <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/BraianMelo"><i
@@ -364,7 +362,7 @@
                     <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/braian_melo_/"><i
                             class="fab fa-fw fa-instagram"></i></a>
                 </div>
-                <!-- Footer About Text-->
+                <!-- Email 2.0 -->
                 <div class="col-lg-4">
                     <h4 class="text-uppercase mb-4">Email</h4>
                     <p class="lead mb-0">
@@ -379,8 +377,8 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright &copy; Braian Melo 2025</small></div>
     </div>
-    <!-- Portfolio Modals-->
-    <!-- Portfolio Modal 1-->
+    <!-- Modals de Projetos-->
+    <!-- Modals de Projeto 1-->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1"
         aria-hidden="true">
         <div class="modal-dialog modal-xl">
@@ -392,7 +390,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Clone do youtube</h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -400,16 +398,22 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cabin.png" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/projeto-web.png" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                <p class="mb-4">
+                                    Projeto simples desenvolvido há alguns meses com o objetivo de praticar os fundamentos de HTML e CSS. Serviu como base para o entendimento de estruturação e estilização de páginas web.
                                 </p>
-                                <button class="btn btn-primary" data-bs-dismiss="modal">
-                                    <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
-                                </button>
+                                
+
+                                <div class="d-flex flex-column align-items-center gap-3">
+                                    <a href="https://github.com/BraianMelo/Youtube-Clone" target="_blank" class="btn btn-outline-dark">
+                                        <i class="fab fa-github me-2"></i> Ver no GitHub
+                                    </a>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i> Fechar janela
+                                    </button>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -417,7 +421,7 @@
             </div>
         </div>
     </div>
-    <!-- Portfolio Modal 2-->
+    <!-- Modals de Projeto 2-->
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2"
         aria-hidden="true">
         <div class="modal-dialog modal-xl">
@@ -429,7 +433,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Trabalho de Banco de Dados</h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -437,16 +441,19 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/cake.png" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/projeto-java.png" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                                <p class="mb-4">
+                                    Projeto desenvolvido durante a disciplina de Banco de Dados no 5º período do curso de Ciência da Computação. A aplicação foi construída utilizando MySQL, Java, JavaFX e CSS, com foco na prática de integração entre interface gráfica e banco de dados relacional.
                                 </p>
-                                <button class="btn btn-primary" data-bs-dismiss="modal">
-                                    <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
-                                </button>
+                                <div class="d-flex flex-column align-items-center gap-3">
+                                    <a href="https://github.com/BraianMelo/Trabalho_BD" target="_blank" class="btn btn-outline-dark">
+                                        <i class="fab fa-github me-2"></i> Ver no GitHub
+                                    </a>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i> Fechar janela
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -454,7 +461,7 @@
             </div>
         </div>
     </div>
-    <!-- Portfolio Modal 3-->
+    <!-- Modals de Projeto 3-->
     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3"
         aria-hidden="true">
         <div class="modal-dialog modal-xl">
@@ -466,7 +473,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Jogo da Cobrinha</h2>
                                 <!-- Icon Divider-->
                                 <div class="divider-custom">
                                     <div class="divider-custom-line"></div>
@@ -474,53 +481,19 @@
                                     <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/circus.png" alt="..." />
+                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/projeto-c.png" alt="..." />
                                 <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" data-bs-dismiss="modal">
-                                    <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 4-->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
+                                <p class="mb-4">
+                                    Jogo da cobrinha desenvolvido no primeiro período do curso de Ciência da Computação como introdução à lógica de programação e estrutura de controle. O projeto foi implementado com foco em interação gráfica e movimentação contínua, proporcionando um resultado visual satisfatório para o nível inicial.
+                                </p>                                
+                                <div class="d-flex flex-column align-items-center gap-3">
+                                    <a href="https://github.com/BraianMelo/Jogo-da-cobrinha" target="_blank" class="btn btn-outline-dark">
+                                        <i class="fab fa-github me-2"></i> Ver no GitHub
+                                    </a>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i> Fechar janela
+                                    </button>
                                 </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" data-bs-dismiss="modal">
-                                    <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -528,81 +501,7 @@
             </div>
         </div>
     </div>
-    <!-- Portfolio Modal 5-->
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/safe.png" alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" data-bs-dismiss="modal">
-                                    <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 6-->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="assets/img/portfolio/submarine.png"
-                                    alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" data-bs-dismiss="modal">
-                                    <i class="fas fa-xmark fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
