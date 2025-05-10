@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', event => {
-    emailjs.init("FImC_ahkCuwvWI7cY");  // Substitua "YOUR_PUBLIC_KEY_HERE" pela chave pública correta
+    emailjs.init("FImC_ahkCuwvWI7cY"); 
 
 
     // Função para reduzir o navbar
@@ -41,11 +41,10 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-    // ✅ Envia o formulário corretamente com sendForm
+    // Envia o formulário
     document.getElementById("contactForm").addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Envia o formulário com emailjs.sendForm
         emailjs.sendForm('service_a4klsjb', 'template_xsvlb7v', this)
             .then(() => {
                 document.getElementById("submitSuccessMessage").classList.remove("d-none");
