@@ -61,12 +61,12 @@ README.md → Documentação
 
 ## 🌐 Deploy (GitHub Pages)
  
-Este projeto será hospedado gratuitamente no GitHub Pages.
+Este projeto será hospedado gratuitamente no GitHub Pages. Você pode acessar ele por [aqui](https://braianmelo.github.io/).
 
 ## 📬 Contato
 
 Entre em contato:
-- **E-mail**: braian@email.com
+- **E-mail**: braian@gmail.com
 
 ## 📄 Licença
 
