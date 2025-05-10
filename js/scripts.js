@@ -1,6 +1,7 @@
-import { init, sendForm } from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.js';
-
 window.addEventListener('DOMContentLoaded', event => {
+    emailjs.init("FImC_ahkCuwvWI7cY");  // Substitua "YOUR_PUBLIC_KEY_HERE" pela chave pública correta
+
+
     // Função para reduzir o navbar
     const navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
@@ -40,14 +41,12 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-    // ✅ Inicializa corretamente o EmailJS
-    init("FImC_ahkCuwvWI7cY");
-
-    // ✅ Envia o formulário corretamente
+    // ✅ Envia o formulário corretamente com sendForm
     document.getElementById("contactForm").addEventListener("submit", function (e) {
         e.preventDefault();
 
-        sendForm('service_a4klsjb', 'template_qfop378', this)
+        // Envia o formulário com emailjs.sendForm
+        emailjs.sendForm('service_a4klsjb', 'template_xsvlb7v', this)
             .then(() => {
                 document.getElementById("submitSuccessMessage").classList.remove("d-none");
                 document.getElementById("submitErrorMessage").classList.add("d-none");
