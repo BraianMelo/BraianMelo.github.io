@@ -37,6 +37,10 @@ export default function Navbar() {
             Sobre
           </a>
 
+          <a href="#formacao" className="transition hover:text-neutral-300">
+            Formação
+          </a>
+
           <a href="#projetos" className="transition hover:text-neutral-300">
             Projetos
           </a>
@@ -76,6 +80,14 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
           >
             Sobre
+          </a>
+
+          <a
+            href="#formacao"
+            className="border-b border-white/10 py-4"
+            onClick={() => setMenuOpen(false)}
+          >
+            Formação
           </a>
 
           <a
