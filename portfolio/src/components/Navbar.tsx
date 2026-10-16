@@ -70,7 +70,7 @@ export default function Navbar() {
       {/* Menu Mobile */}
       <div
         className={`overflow-hidden bg-black/90 backdrop-blur-md transition-all duration-300 md:hidden ${
-          menuOpen ? "max-h-80" : "max-h-0"
+          menuOpen ? "max-h-96" : "max-h-0"
         }`}
       >
         <nav className="flex flex-col px-6 py-4 text-white">
