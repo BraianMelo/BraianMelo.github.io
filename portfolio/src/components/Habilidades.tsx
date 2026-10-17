@@ -49,7 +49,7 @@ export default function Habilidades() {
       className="bg-black px-6 py-24 text-white lg:px-12"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col justify-between gap-8 border-b border-white/10 pb-10 sm:flex-row sm:items-end">
+        <div className="flex flex-col justify-between gap-8 pb-10 sm:flex-row sm:items-end">
           <div>
             <span className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-400">
               03 / Habilidades
@@ -64,12 +64,9 @@ export default function Habilidades() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-x-12 md:grid-cols-2">
+        <div className="mt-2 grid gap-x-12 gap-y-8 md:grid-cols-2">
           {skillGroups.map((group) => (
-            <section
-              key={group.category}
-              className="border-t border-white/10 py-7"
-            >
+            <section key={group.category} className="py-3">
               <h3 className="text-lg font-medium">{group.category}</h3>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {group.technologies.map((technology) => (
