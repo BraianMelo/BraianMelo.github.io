@@ -1,9 +1,29 @@
 import { useEffect, useState } from "react";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 
+const navLinks = [
+  { id: "sobre", label: "Sobre" },
+  { id: "formacao", label: "Formação" },
+  { id: "projetos", label: "Projetos" },
+  { id: "habilidades", label: "Habilidades" },
+  { id: "contato", label: "Contato" },
+];
+
+const navLinkClassName = (active: boolean, mobile = false) =>
+  [
+    "relative after:absolute after:left-0 after:h-0.5 after:w-full after:bg-lime-300 after:transition-transform after:duration-300",
+    mobile
+      ? "w-fit border-b border-white/10 py-4 after:bottom-3"
+      : "after:-bottom-2",
+    active
+      ? "text-lime-200 after:scale-x-100"
+      : "text-white after:scale-x-0 transition hover:text-neutral-300 hover:after:scale-x-100",
+  ].join(" ");
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +35,30 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const marker = window.innerHeight * 0.45;
+      const currentSection = navLinks.find(({ id }) => {
+        const section = document.getElementById(id);
+        if (!section) return false;
+
+        const { top, bottom } = section.getBoundingClientRect();
+        return top <= marker && bottom > marker;
+      });
+
+      setActiveSection(currentSection?.id ?? "");
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   return (
@@ -33,25 +77,16 @@ export default function Navbar() {
 
         {/* Desktop */}
         <nav className="hidden items-center gap-10 text-sm font-medium text-white md:flex">
-          <a href="#sobre" className="transition hover:text-neutral-300">
-            Sobre
-          </a>
-
-          <a href="#formacao" className="transition hover:text-neutral-300">
-            Formação
-          </a>
-
-          <a href="#projetos" className="transition hover:text-neutral-300">
-            Projetos
-          </a>
-
-          <a href="#habilidades" className="transition hover:text-neutral-300">
-            Habilidades
-          </a>
-
-          <a href="#contato" className="transition hover:text-neutral-300">
-            Contato
-          </a>
+          {navLinks.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              aria-current={activeSection === id ? "location" : undefined}
+              className={navLinkClassName(activeSection === id)}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
         {/* Mobile */}
@@ -74,45 +109,17 @@ export default function Navbar() {
         }`}
       >
         <nav className="flex flex-col px-6 py-4 text-white">
-          <a
-            href="#sobre"
-            className="border-b border-white/10 py-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            Sobre
-          </a>
-
-          <a
-            href="#formacao"
-            className="border-b border-white/10 py-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            Formação
-          </a>
-
-          <a
-            href="#projetos"
-            className="border-b border-white/10 py-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            Projetos
-          </a>
-
-          <a
-            href="#habilidades"
-            className="border-b border-white/10 py-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            Habilidades
-          </a>
-
-          <a
-            href="#contato"
-            className="py-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            Contato
-          </a>
+          {navLinks.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              aria-current={activeSection === id ? "location" : undefined}
+              className={navLinkClassName(activeSection === id, true)}
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
       </div>
     </header>

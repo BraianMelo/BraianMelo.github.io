@@ -1,9 +1,9 @@
 import { HiOutlineAcademicCap } from "react-icons/hi2";
 
 const learningAreas = [
-  "Fundamentos da computação",
-  "Desenvolvimento de software",
-  "Construção de aplicações",
+  "Arquitetura de software",
+  "Engenharia de software",
+  "Desenvolvimento de aplicações web",
 ];
 
 const educationHistory = [
@@ -13,14 +13,14 @@ const educationHistory = [
     period: "2022 – Dezembro/2026",
     status: "Em andamento",
     description:
-      "Formação em Ciência da Computação com foco em desenvolvimento de software e aplicação prática dos conhecimentos.",
+      "Ao longo do curso, venho aprendendo os fundamentos da computação e aplicando esse conhecimento em projetos e atividades práticas.",
     experiences: [
       {
         title: "Linked - Assessor de Projetos (Web)",
         organization: "Empresa Júnior de Ciência da Computação da UFSJ",
         period: "Jun/2025 – Atual",
         description:
-          "Atuação em projetos de desenvolvimento web, colaborando com a organização das demandas e a aplicação de metodologias ágeis.",
+          "Participo de projetos web, colaborando com a equipe na organização das demandas e no desenvolvimento das soluções.",
       },
     ],
   },
@@ -28,6 +28,8 @@ const educationHistory = [
     status: "Concluído",
     level: "Ensino técnico",
     title: "Técnico integrado ao Ensino Médio",
+    description:
+      "Formação técnica em Informática, com contato inicial com programação e desenvolvimento de sistemas.",
     institution: "IFTM, Campus Paracatu",
     period: "2019 — 2021",
   },
@@ -35,10 +37,7 @@ const educationHistory = [
 
 export default function Formacao() {
   return (
-    <section
-      id="formacao"
-      className="bg-neutral-950 px-6 py-24 text-white lg:px-12"
-    >
+    <section id="formacao" className="bg-black px-6 py-24 text-white lg:px-12">
       <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
         <div className="self-center">
           <span className="text-sm font-medium uppercase tracking-[0.25em] text-neutral-400">
@@ -46,12 +45,12 @@ export default function Formacao() {
           </span>
 
           <h2 className="mt-5 max-w-md text-4xl font-semibold leading-tight md:text-5xl">
-            Uma base sólida para ideias que ganham vida.
+            Construindo conhecimento e experiência.
           </h2>
 
           <p className="mt-6 max-w-lg text-lg leading-8 text-neutral-300">
-            Minha jornada acadêmica caminha junto com a prática: aprender os
-            fundamentos, experimentar e transformar conhecimento em projetos.
+            Curso Ciência da Computação na UFSJ e procuro colocar em prática o
+            que aprendo, participando de projetos e trabalhando em equipe.
           </p>
         </div>
 
@@ -64,7 +63,7 @@ export default function Formacao() {
               }`}
             >
               <span
-                className={`absolute -left-[33px] top-5 h-2.5 w-2.5 rounded-full ring-4 ring-neutral-950 sm:-left-[45px] ${
+                className={`absolute -left-[33px] top-5 h-2.5 w-2.5 rounded-full ring-4 ring-black sm:-left-[45px] ${
                   index === 0 ? "bg-white" : "bg-neutral-500"
                 }`}
               />
@@ -137,7 +136,7 @@ export default function Formacao() {
 
           <div className="pt-7">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
-              No meu radar
+              O que quero aprofundar
             </p>
 
             <ul className="mt-5 grid gap-3 sm:grid-cols-3">

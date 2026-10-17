@@ -2,9 +2,9 @@ import SobreMimImagem from "../assets/images/SobreMim.jpg";
 
 const technologies = [
   "React",
-  "TypeScript",
   "Next.js",
   "Tailwind CSS",
+  "Bootstrap",
   "Node.js",
   "Prisma",
   "PostgreSQL",
@@ -13,10 +13,7 @@ const technologies = [
 
 export default function Sobre() {
   return (
-    <section
-      id="sobre"
-      className="bg-neutral-950 px-6 py-24 text-white lg:px-12"
-    >
+    <section id="sobre" className="bg-black px-6 py-24 text-white lg:px-12">
       <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2">
         {/* Foto */}
         <div className="flex justify-center">
@@ -30,23 +27,24 @@ export default function Sobre() {
         {/* Texto */}
         <div>
           <span className="text-sm uppercase tracking-[0.3em] text-neutral-400">
-            Sobre Mim
+            Um pouco sobre mim
           </span>
 
           <h2 className="mt-4 text-4xl font-bold md:text-5xl">
-            Desenvolvedor Full Stack
+            Código, curiosidade e vontade de aprender.
           </h2>
 
           <p className="mt-8 text-lg leading-8 text-neutral-300">
-            Sou estudante de Ciência da Computação e desenvolvedor Full Stack,
-            apaixonado por criar aplicações modernas, performáticas e com foco
-            na experiência do usuário.
+            Curso Ciência da Computação na UFSJ e gosto de ver minhas ideias
+            saindo do papel e se transformando em aplicações que funcionam de
+            verdade.
           </p>
 
           <p className="mt-6 text-lg leading-8 text-neutral-300">
-            Tenho experiência com React, Next.js, TypeScript, Node.js,
-            PostgreSQL e Prisma, sempre buscando escrever código limpo,
-            reutilizável e escalável.
+            Nos meus projetos, já trabalhei em diferentes partes de uma
+            aplicação, desde a interface até o banco de dados. React, Next.js,
+            Node.js, PHP e PostgreSQL são algumas das tecnologias com que tenho
+            trabalhado.
           </p>
 
           {/* Tecnologias */}
@@ -66,7 +64,7 @@ export default function Sobre() {
             href="#projetos"
             className="mt-12 inline-flex rounded-full border border-white px-8 py-3 font-medium transition hover:bg-white hover:text-black"
           >
-            Ver Projetos
+            Conheça meus projetos
           </a>
         </div>
       </div>

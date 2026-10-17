@@ -25,7 +25,7 @@ const portfolioProject: Project = {
   title: "Rede do Patrimônio",
   context: "Empresa júnior",
   description:
-    "Participei do desenvolvimento pela empresa júnior Linked. A plataforma conecta profissionais e valoriza o patrimônio cultural, em uma evolução do antigo site WordPress, construída em sprints com metodologia ágil.",
+    "Participei, pela Linked, do desenvolvimento da Rede do Patrimônio, uma plataforma que conecta profissionais e contribui para a valorização do patrimônio cultural. O projeto envolveu colaboração com a equipe e trabalho em ciclos ágeis.",
   image: "/assets/images/projeto_rede_vida.png",
   imageAlt: "Página Home da Rede do Patrimônio",
   technologies: [
@@ -43,7 +43,7 @@ const resenhasProject: Project = {
   title: "Projeto Resenhas",
   context: "Projeto pessoal",
   description:
-    "Um projeto web pessoal para cadastrar e publicar resenhas de livros, filmes, jogos e séries e treinar deploy de um site",
+    "Criei uma plataforma pessoal para reunir resenhas de livros, filmes, séries e jogos. O projeto também é uma oportunidade de desenvolver uma aplicação em PHP, desde a organização do código até a publicação na web.",
   image: "/assets/images/projeto_resenhas.png",
   imageAlt: "Página Home contendo as resenhas",
   technologies: ["PHP", "Slim 4", "Twig", "MySQL"],
@@ -56,7 +56,7 @@ const thiagoProject: Project = {
   context: "Freelance",
   image: "/assets/images/projeto_precisa_economia.png",
   description:
-    "Site institucional para um escritório de consultoria integrada, apresentando serviços de gestão financeira, assessoria jurídica e licitações públicas.",
+    "Desenvolvi o site da Precisa Economia para apresentar os serviços do escritório, incluindo gestão financeira, assessoria jurídica e apoio em licitações públicas.",
   technologies: [
     "Next.js",
     "React",
@@ -66,52 +66,30 @@ const thiagoProject: Project = {
     "PostgreSQL",
   ],
   deployment: "Vercel",
+  liveUrl: "https://precisa-economia.vercel.app",
 };
 
-const projects: Project[] = [portfolioProject, resenhasProject, thiagoProject];
+const projects: Project[] = [portfolioProject, thiagoProject, resenhasProject];
 
 export default function Projetos() {
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
   const [activeProject, setActiveProject] = useState(0);
   const [autoplayEnabled, setAutoplayEnabled] = useState(true);
 
   useEffect(() => {
     if (projects.length < 2 || !autoplayEnabled) return;
 
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
     const intervalId = window.setInterval(() => {
-      const carousel = carouselRef.current;
-
-      if (!carousel || carousel.clientWidth === 0) return;
-
-      const currentIndex = Math.round(
-        carousel.scrollLeft / carousel.clientWidth,
-      );
-      const nextIndex = (currentIndex + 1) % projects.length;
-
-      carousel.scrollTo({
-        left: nextIndex * carousel.clientWidth,
-        behavior: reducedMotion ? "instant" : "smooth",
-      });
-    }, 5000);
+      setActiveProject((current) => (current + 1) % projects.length);
+    }, 10000);
 
     return () => window.clearInterval(intervalId);
   }, [autoplayEnabled]);
 
-  const scrollToProject = (direction: -1 | 1) => {
-    const carousel = carouselRef.current;
-
-    if (!carousel) return;
-
-    carousel.scrollBy({
-      left: carousel.clientWidth * direction,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
+  const moveToProject = (direction: -1 | 1) => {
+    setActiveProject((current) =>
+      Math.max(0, Math.min(projects.length - 1, current + direction)),
+    );
   };
 
   return (
@@ -126,141 +104,155 @@ export default function Projetos() {
               02 / Projetos
             </span>
             <h2 className="mt-5 max-w-xl text-4xl font-semibold leading-tight md:text-5xl">
-              Ideias que saem da tela.
+              Projetos que fazem parte da minha trajetória.
             </h2>
           </div>
           <p className="max-w-md text-lg leading-8 text-neutral-300">
-            Projetos que mostram como transformo ideias em experiências
-            digitais, da primeira interface até a implementação.
+            De projetos pessoais a experiências profissionais, cada um me
+            permitiu explorar tecnologias e desenvolver soluções para diferentes
+            necessidades.
           </p>
         </div>
 
         <div
-          ref={carouselRef}
-          onScroll={(event) => {
-            const carousel = event.currentTarget;
-            setActiveProject(
-              Math.round(carousel.scrollLeft / carousel.clientWidth),
-            );
+          onTouchStart={(event) => {
+            touchStartX.current = event.touches[0]?.clientX ?? null;
+          }}
+          onTouchEnd={(event) => {
+            if (touchStartX.current === null) return;
+
+            const distance =
+              event.changedTouches[0].clientX - touchStartX.current;
+            touchStartX.current = null;
+
+            if (Math.abs(distance) > 50) {
+              moveToProject(distance < 0 ? 1 : -1);
+            }
           }}
           role="region"
           aria-label="Carrossel de projetos"
           aria-roledescription="carrossel"
-          className="mt-10 flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="mt-10 overflow-hidden touch-pan-y"
         >
-          {projects.map((project, index) => (
-            <article
-              key={project.title}
-              aria-roledescription="slide"
-              aria-label={`${index + 1} de ${projects.length}`}
-              className={`grid w-full shrink-0 snap-start items-center gap-8 transition-[opacity,transform] duration-700 ease-out motion-reduce:transition-none md:grid-cols-[1.2fr_0.8fr] md:gap-12 ${
-                index === activeProject
-                  ? "scale-100 opacity-100"
-                  : "scale-[0.98] opacity-55"
-              }`}
-            >
-              <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-800">
-                {project.image ? (
-                  project.liveUrl ? (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Visitar o site de ${project.title}`}
-                      title={`Visitar ${project.title}`}
-                      className="group/image relative block h-full w-full overflow-hidden"
-                    >
-                      <img
-                        src={project.image}
-                        alt={project.imageAlt ?? `Captura de ${project.title}`}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover/image:scale-[1.04]"
-                      />
-                      <span className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center bg-neutral-950/80 text-white transition-colors group-hover/image:bg-lime-300 group-hover/image:text-neutral-950">
-                        <HiArrowTopRightOnSquare size={20} aria-hidden="true" />
-                      </span>
-                    </a>
-                  ) : (
-                    <img
-                      src={project.image}
-                      alt={project.imageAlt ?? `Captura de ${project.title}`}
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
-                    />
-                  )
-                ) : (
-                  <div className="flex h-full flex-col items-center justify-center gap-3 text-neutral-500">
-                    <HiOutlinePhoto size={34} aria-hidden="true" />
-                    <span className="text-sm">Print do projeto</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="py-2">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-mono text-sm text-lime-300">
-                      PROJETO {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="border border-white/15 px-2.5 py-1 text-xs text-neutral-300">
-                      {project.context}
-                    </span>
-                  </div>
-                  <div className="flex gap-4">
-                    {project.liveUrl && (
+          <div
+            className="flex transition-transform duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+            style={{ transform: `translateX(-${activeProject * 100}%)` }}
+          >
+            {projects.map((project, index) => (
+              <article
+                key={project.title}
+                aria-roledescription="slide"
+                aria-label={`${index + 1} de ${projects.length}`}
+                className="grid w-full shrink-0 items-center gap-8 md:grid-cols-[1.2fr_0.8fr] md:gap-12"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden border border-white/10 bg-neutral-800">
+                  {project.image ? (
+                    project.liveUrl ? (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noreferrer"
-                        aria-label={`Abrir ${project.title}`}
-                        title="Abrir projeto"
-                        className="text-neutral-400 transition hover:text-lime-300"
+                        aria-label={`Visitar o site de ${project.title}`}
+                        title={`Visitar ${project.title}`}
+                        className="group/image relative block h-full w-full overflow-hidden"
                       >
-                        <HiArrowTopRightOnSquare size={22} />
+                        <img
+                          src={project.image}
+                          alt={
+                            project.imageAlt ?? `Captura de ${project.title}`
+                          }
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover/image:scale-[1.04]"
+                        />
+                        <span className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center bg-neutral-950/80 text-white transition-colors group-hover/image:bg-lime-300 group-hover/image:text-neutral-950">
+                          <HiArrowTopRightOnSquare
+                            size={20}
+                            aria-hidden="true"
+                          />
+                        </span>
                       </a>
-                    )}
-                    {project.sourceUrl && (
-                      <a
-                        href={project.sourceUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`Ver código de ${project.title}`}
-                        title="Ver código-fonte"
-                        className="text-neutral-400 transition hover:text-lime-300"
-                      >
-                        <HiOutlineCodeBracket size={22} />
-                      </a>
-                    )}
-                  </div>
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={project.imageAlt ?? `Captura de ${project.title}`}
+                        className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
+                      />
+                    )
+                  ) : (
+                    <div className="flex h-full flex-col items-center justify-center gap-3 text-neutral-500">
+                      <HiOutlinePhoto size={34} aria-hidden="true" />
+                      <span className="text-sm">Print do projeto</span>
+                    </div>
+                  )}
                 </div>
 
-                <h3 className="mt-5 text-3xl font-semibold sm:text-4xl">
-                  {project.title}
-                </h3>
-                <p className="mt-4 leading-7 text-neutral-300">
-                  {project.description}
-                </p>
+                <div className="py-2">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="font-mono text-sm text-lime-300">
+                        PROJETO {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="border border-white/15 px-2.5 py-1 text-xs text-neutral-300">
+                        {project.context}
+                      </span>
+                    </div>
+                    <div className="flex gap-4">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Abrir ${project.title}`}
+                          title="Abrir projeto"
+                          className="text-neutral-400 transition hover:text-lime-300"
+                        >
+                          <HiArrowTopRightOnSquare size={22} />
+                        </a>
+                      )}
+                      {project.sourceUrl && (
+                        <a
+                          href={project.sourceUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Ver código de ${project.title}`}
+                          title="Ver código-fonte"
+                          className="text-neutral-400 transition hover:text-lime-300"
+                        >
+                          <HiOutlineCodeBracket size={22} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
 
-                {project.deployment && (
-                  <p className="mt-4 text-sm text-neutral-400">
-                    Deploy realizado na{" "}
-                    <span className="font-medium text-lime-200">
-                      {project.deployment}
-                    </span>
+                  <h3 className="mt-5 text-3xl font-semibold sm:text-4xl">
+                    {project.title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-neutral-300">
+                    {project.description}
                   </p>
-                )}
 
-                <ul className="mt-6 flex flex-wrap gap-2">
-                  {project.technologies.map((technology) => (
-                    <li
-                      key={technology}
-                      className="border border-white/15 px-3 py-1.5 text-xs font-medium text-neutral-300 transition duration-200 hover:-translate-y-0.5 hover:border-lime-300/60 hover:text-lime-200"
-                    >
-                      {technology}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
+                  {project.deployment && (
+                    <p className="mt-4 text-sm text-neutral-400">
+                      Hospedado em{" "}
+                      <span className="font-medium text-lime-200">
+                        {project.deployment}
+                      </span>
+                    </p>
+                  )}
+
+                  <ul className="mt-6 flex flex-wrap gap-2">
+                    {project.technologies.map((technology) => (
+                      <li
+                        key={technology}
+                        className="border border-white/15 px-3 py-1.5 text-xs font-medium text-neutral-300 transition duration-200 hover:-translate-y-0.5 hover:border-lime-300/60 hover:text-lime-200"
+                      >
+                        {technology}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         {projects.length > 1 && (
@@ -289,7 +281,7 @@ export default function Projetos() {
               </button>
               <button
                 type="button"
-                onClick={() => scrollToProject(-1)}
+                onClick={() => moveToProject(-1)}
                 disabled={activeProject === 0}
                 aria-label="Projeto anterior"
                 className="flex h-11 w-11 items-center justify-center border border-white/15 text-white transition hover:border-lime-300 hover:text-lime-300 disabled:cursor-not-allowed disabled:opacity-35"
@@ -298,7 +290,7 @@ export default function Projetos() {
               </button>
               <button
                 type="button"
-                onClick={() => scrollToProject(1)}
+                onClick={() => moveToProject(1)}
                 disabled={activeProject === projects.length - 1}
                 aria-label="Próximo projeto"
                 className="flex h-11 w-11 items-center justify-center border border-white/15 text-white transition hover:border-lime-300 hover:text-lime-300 disabled:cursor-not-allowed disabled:opacity-35"

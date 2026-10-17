@@ -25,8 +25,8 @@ export default function Hero() {
           <p className="mb-3 text-xl md:text-2xl">Desenvolvedor Full Stack</p>
 
           <p className="mb-10 max-w-2xl text-neutral-300">
-            Transformando ideias em aplicações modernas, performáticas e com
-            foco na experiência do usuário.
+            Gosto de computação e de ver minhas ideias ganhando vida através do
+            meu esforço e aprendizado.
           </p>
 
           <div className="flex flex-col justify-end gap-4 sm:flex-row">
@@ -34,14 +34,14 @@ export default function Hero() {
               href="#projetos"
               className="rounded-full bg-white px-8 py-3 font-semibold text-black transition hover:bg-neutral-200"
             >
-              Ver Projetos
+              Ver projetos
             </a>
 
             <a
               href="#contato"
               className="rounded-full border border-white px-8 py-3 font-semibold transition hover:bg-white hover:text-black"
             >
-              Contato
+              Vamos conversar
             </a>
           </div>
         </div>
