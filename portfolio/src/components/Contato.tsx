@@ -53,10 +53,8 @@ export default function Contato() {
         serviceId,
         templateId,
         {
-          from_name: name,
-          from_email: email,
-          reply_to: email,
-          subject: `Contato pelo portfólio: ${name}`,
+          name: name,
+          email: email,
           message,
         },
         publicKey,
